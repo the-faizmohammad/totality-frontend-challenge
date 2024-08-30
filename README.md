@@ -28,7 +28,7 @@
 - [❓ FAQ](#faq)
 - [📝 License](#license)
 
-## 📖 This BookStore App is built using React
+## 📖 This  App is built using React
 
 ## 🛠 Built With <a name="built-with">React</a>
 
