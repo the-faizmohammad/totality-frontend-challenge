@@ -1,14 +1,10 @@
-import configureStore from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import listingsReducer from '../features/listings/listingsSlice';
 
-export default configureStore({
+const store = configureStore({
   reducer: {
     listings: listingsReducer,
   },
 });
 
-export const store = configureStore({
-  reducer: {
-    listings: listingsReducer,
-  },
-});
+export default store;
