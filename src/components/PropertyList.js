@@ -80,7 +80,7 @@ const PropertyList = () => {
               Price: $
               {property.price}
             </p>
-            <button>Book Now</button>
+            <button type="button">Book Now</button>
           </div>
         ))}
       </div>
