@@ -5,12 +5,12 @@ import { fetchListings } from '../features/listings/listingsSlice';
 const PropertyList = () => {
   const dispatch = useDispatch();
   const { properties, status, error } = useSelector((state) => state.listings);
-  
+
   const [filters, setFilters] = useState({
     city: '',
     priceRange: '',
     bedrooms: '',
-    amenities: ''
+    amenities: '',
   });
 
   useEffect(() => {
@@ -26,12 +26,19 @@ const PropertyList = () => {
   };
 
   if (status === 'loading') return <div>Loading...</div>;
-  if (status === 'failed') return <div>Error: {error}</div>;
+  if (status === 'failed') {
+    return (
+      <div>
+        Error:
+        {error}
+      </div>
+    );
+  }
 
   return (
     <div>
       <h1>Property Listings</h1>
-      
+
       <div className="filters">
         <input
           type="text"
@@ -69,7 +76,10 @@ const PropertyList = () => {
             <img src={property.image} alt={property.title} />
             <h2>{property.title}</h2>
             <p>{property.description}</p>
-            <p>Price: ${property.price}</p>
+            <p>
+              Price: $
+              {property.price}
+            </p>
             <button>Book Now</button>
           </div>
         ))}

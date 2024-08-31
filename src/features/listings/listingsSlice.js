@@ -9,7 +9,7 @@ export const fetchListings = createAsyncThunk(
       params: filters,
     });
     return response.data;
-  }
+  },
 );
 
 const listingsSlice = createSlice({
