@@ -10,7 +10,7 @@ const propertySlice = createSlice({
   initialState: {
     items: [],
     status: 'idle',
-    error: null
+    error: null,
   },
   reducers: {
   },
@@ -27,7 +27,7 @@ const propertySlice = createSlice({
         state.status = 'failed';
         state.error = action.error.message;
       });
-  }
+  },
 });
 
 export default propertySlice.reducer;
