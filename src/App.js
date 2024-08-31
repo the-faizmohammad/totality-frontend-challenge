@@ -1,15 +1,16 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
 import PropertyList from './components/PropertyList';
-// import other components as needed
+import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <Routes>
-        <Route path="/" element={<PropertyList />} />
-        {/* Add more routes here */}
-      </Routes>
+      <header className="App-header">
+        <h1>Property Rental App</h1>
+      </header>
+      <main>
+        <PropertyList />
+      </main>
     </div>
   );
 }
