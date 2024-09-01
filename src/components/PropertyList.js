@@ -2,23 +2,20 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProperties } from '../slices/propertySlice';
 import PropertyCard from './PropertyCard';
+import PropertyDetail from './PropertyDetail'; // Import the PropertyDetail component
 import '../App.css';
 
 const PropertyList = () => {
   const dispatch = useDispatch();
   const properties = useSelector((state) => state.properties.items);
   const status = useSelector((state) => state.properties.status);
-
   const [selectedProperty, setSelectedProperty] = useState(null);
   const [filters, setFilters] = useState({ location: '', priceRange: [0, 1000], availability: false });
+  const [popupVisible, setPopupVisible] = useState(false);
 
   useEffect(() => {
     dispatch(fetchProperties());
   }, [dispatch]);
-
-  const handleBookNow = (property) => {
-    setSelectedProperty(property);
-  };
 
   const handleFilterChange = (e) => {
     const {
@@ -30,11 +27,16 @@ const PropertyList = () => {
     }));
   };
 
+  const handleSeeDetails = (property) => {
+    setSelectedProperty(property);
+    setPopupVisible(true);
+  };
+
   const filteredProperties = properties.filter((property) => (
     property.location.includes(filters.location)
-      && property.price >= filters.priceRange[0]
-      && property.price <= filters.priceRange[1]
-      && (!filters.availability || property.availability) // Corrected spelling
+    && property.price >= filters.priceRange[0]
+    && property.price <= filters.priceRange[1]
+    && (!filters.availability || property.availability)
   ));
 
   return (
@@ -67,8 +69,9 @@ const PropertyList = () => {
           }))}
           placeholder="Max Price"
         />
-        <label>
+        <label htmlFor="availability">
           <input
+            id="availability"
             type="checkbox"
             name="availability"
             checked={filters.availability}
@@ -81,19 +84,24 @@ const PropertyList = () => {
         {status === 'loading' && <p>Loading...</p>}
         {status === 'failed' && <p>Error loading properties.</p>}
         {status === 'succeeded' && filteredProperties.map((property) => (
-          <PropertyCard key={property.id} property={property} onBookNow={handleBookNow} />
+          <PropertyCard
+            key={property.id}
+            property={property}
+            onSeeDetails={() => handleSeeDetails(property)}
+          />
         ))}
       </div>
-      {selectedProperty && (
-        <div className="property-detail">
-          <img src={selectedProperty.image} alt={selectedProperty.title} />
-          <h2>{selectedProperty.title}</h2>
-          <p>{selectedProperty.description}</p>
-          <p>
-            Price: $
-            {selectedProperty.price}
-          </p>
-          <button type="button">Buy Now</button>
+
+      {popupVisible && selectedProperty && (
+        <div className="property-popup">
+          <button
+            type="button"
+            onClick={() => setPopupVisible(false)}
+            className="close-popup-button"
+          >
+            Close
+          </button>
+          <PropertyDetail property={selectedProperty} />
         </div>
       )}
     </div>

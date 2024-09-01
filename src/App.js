@@ -1,17 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import PropertyList from './components/PropertyList';
+import PropertyDetail from './components/PropertyDetail';
 import './App.css';
 
 function App() {
+  const [selectedProperty, setSelectedProperty] = useState(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Property Rental App</h1>
-      </header>
-      <main>
-        <PropertyList />
-      </main>
-    </div>
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <PropertyList setSelectedProperty={setSelectedProperty} />
+          }
+        />
+        <Route
+          path="/property"
+          element={
+            <PropertyDetail property={selectedProperty} />
+          }
+        />
+      </Routes>
+    </Router>
   );
 }
 
