@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Nav from './components/Nav'; // Import Nav component
+import Nav from './components/Nav';
 import PropertyList from './components/PropertyList';
 import PropertyDetail from './components/PropertyDetail';
 import './App.css';
