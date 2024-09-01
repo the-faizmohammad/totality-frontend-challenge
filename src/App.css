@@ -16,7 +16,7 @@ body {
 .filters {
   margin-bottom: 20px;
   padding: 10px;
-  background-color: #ffffff;
+  background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -45,7 +45,7 @@ body {
 }
 
 .property-card {
-  background: #ffffff;
+  background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   width: 300px;
@@ -81,7 +81,7 @@ body {
   left: 0;
   width: 100%;
   background-color: #007bff;
-  color: #ffffff;
+  color: #fff;
   border: none;
   padding: 10px;
   text-align: center;
@@ -107,7 +107,7 @@ body {
 }
 
 .property-detail {
-  background: #ffffff;
+  background: #fff;
   border-radius: 8px;
   width: 80%;
   max-width: 1000px;
@@ -119,7 +119,7 @@ body {
 
 .property-detail .back-button {
   background-color: #f44336;
-  color: #ffffff;
+  color: #fff;
   border: none;
   padding: 10px 20px;
   border-radius: 4px;
@@ -174,7 +174,7 @@ body {
 
 .property-actions button {
   background-color: #007bff;
-  color: #ffffff;
+  color: #fff;
   border: none;
   padding: 10px 20px;
   border-radius: 4px;
