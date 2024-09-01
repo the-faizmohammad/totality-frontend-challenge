@@ -1,24 +1,45 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { addToCart } from '../slices/cartSlice'; // Import your action creator
 import '../App.css';
 
 const PropertyDetail = ({ property, onClose }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  // Destructure property with default values
   const {
     image = '',
     title = 'No Title',
     description = 'No Description',
-    location: propLocation = 'Unknown Location',
+    location = 'Unknown Location',
     bedrooms = 0,
     amenities = 'No Amenities',
     price = '0.00',
     availability = false,
     landArea = 0,
+    id = '0', // Default id as string
   } = property;
 
+  // Convert id to number
+  const propertyId = Number(id);
+
   const handleAddToCart = () => {
+    dispatch(addToCart({
+      title,
+      price,
+      location,
+      image,
+      landArea,
+      id: propertyId, // Convert id to number
+    }));
+    // Optionally, you can display a message or perform other actions
   };
 
   const handleContactUs = () => {
+    navigate('/cart'); // Navigate to the cart page
   };
 
   return (
@@ -40,7 +61,7 @@ const PropertyDetail = ({ property, onClose }) => {
               </tr>
               <tr>
                 <th>Location:</th>
-                <td>{propLocation}</td>
+                <td>{location}</td>
               </tr>
               <tr>
                 <th>Bedrooms:</th>
@@ -52,18 +73,11 @@ const PropertyDetail = ({ property, onClose }) => {
               </tr>
               <tr>
                 <th>Price:</th>
-                <td>
-                  $
-                  {price}
-                </td>
+                <td>${price}</td>
               </tr>
               <tr>
                 <th>Land Area:</th>
-                <td>
-                  {landArea}
-                  {' '}
-                  sq ft
-                </td>
+                <td>{landArea} sq ft</td>
               </tr>
               <tr>
                 <th>Availability:</th>
@@ -96,6 +110,7 @@ PropertyDetail.propTypes = {
     price: PropTypes.string,
     landArea: PropTypes.number,
     availability: PropTypes.bool.isRequired,
+    id: PropTypes.string.isRequired, // Accept id as a string
   }).isRequired,
   onClose: PropTypes.func.isRequired,
 };
