@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart, updateQuantity } from '../slices/cartSlice';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import '../App.css';
+import '../Cart.css';
 
 const Cart = () => {
   const dispatch = useDispatch();

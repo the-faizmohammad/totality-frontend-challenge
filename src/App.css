@@ -191,7 +191,7 @@ body {
 }
 
 .add-to-cart-button,
-.contact-us-button {
+ view-cart-button {
   padding: 10px 20px;
   border: none;
   cursor: pointer;
@@ -203,6 +203,6 @@ body {
 }
 
 .add-to-cart-button:hover,
-.contact-us-button:hover {
+.add-to-cart-button:hover {
   background-color: #0056b3;
 }

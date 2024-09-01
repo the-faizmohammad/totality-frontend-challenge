@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { clearCart } from '../slices/cartSlice';
 import { useForm, ValidationError } from '@formspree/react';
-import '../App.css';
+import '../Checkout.css';
 
 const CheckoutForm = ({ onSuccess }) => {
   const [state, handleSubmit] = useForm("xyzgvgld");

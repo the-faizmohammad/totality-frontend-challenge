@@ -38,7 +38,7 @@ const PropertyDetail = ({ property, onClose }) => {
     // Optionally, you can display a message or perform other actions
   };
 
-  const handleContactUs = () => {
+  const handleViewCart = () => {
     navigate('/cart'); // Navigate to the cart page
   };
 
@@ -90,8 +90,8 @@ const PropertyDetail = ({ property, onClose }) => {
           <button type="button" onClick={handleAddToCart} className="add-to-cart-button">
             Add to Cart
           </button>
-          <button type="button" onClick={handleContactUs} className="contact-us-button">
-            Contact Us
+          <button type="button" onClick={handleViewCart} className="add-to-cart-button">
+            View Cart
           </button>
         </div>
       </div>
