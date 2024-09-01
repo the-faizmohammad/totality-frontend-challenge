@@ -23,11 +23,9 @@ const PropertyDetail = ({ property }) => {
   } = property;
 
   const handleBuyNow = () => {
-    // Handle the Buy Now action
   };
 
   const handleContactUs = () => {
-    // Handle the Contact Us action
   };
 
   return (
@@ -38,7 +36,6 @@ const PropertyDetail = ({ property }) => {
       <div className="property-detail">
         <div className="image-slider">
           <img src={image} alt={title} />
-          {/* Add slideshow functionality here if needed */}
         </div>
         <div className="property-info">
           <h2>{title}</h2>
