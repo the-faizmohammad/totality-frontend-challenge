@@ -1,15 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useNavigate } from 'react-router-dom';
 import '../App.css';
 
-const PropertyDetail = ({ property }) => {
-  const navigate = useNavigate();
-
-  if (!property) {
-    return <p>Property not found.</p>;
-  }
-
+const PropertyDetail = ({ property, onClose }) => {
   const {
     image = '',
     title = 'No Title',
@@ -22,7 +15,7 @@ const PropertyDetail = ({ property }) => {
     landArea = 0,
   } = property;
 
-  const handleBuyNow = () => {
+  const handleAddToCart = () => {
   };
 
   const handleContactUs = () => {
@@ -30,12 +23,12 @@ const PropertyDetail = ({ property }) => {
 
   return (
     <div className="property-detail-container">
-      <button type="button" onClick={() => navigate('/')} className="back-button">
-        Back
+      <button type="button" onClick={onClose} className="close-popup-button">
+        &times;
       </button>
       <div className="property-detail">
         <div className="image-slider">
-          <img src={image} alt={title} />
+          <img src={image} alt={title} style={{ height: '220px' }} />
         </div>
         <div className="property-info">
           <h2>{title}</h2>
@@ -80,8 +73,8 @@ const PropertyDetail = ({ property }) => {
           </table>
         </div>
         <div className="property-actions">
-          <button type="button" onClick={handleBuyNow} className="buy-now-button">
-            Buy Now
+          <button type="button" onClick={handleAddToCart} className="add-to-cart-button">
+            Add to Cart
           </button>
           <button type="button" onClick={handleContactUs} className="contact-us-button">
             Contact Us
@@ -104,6 +97,7 @@ PropertyDetail.propTypes = {
     landArea: PropTypes.number,
     availability: PropTypes.bool.isRequired,
   }).isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
 export default PropertyDetail;

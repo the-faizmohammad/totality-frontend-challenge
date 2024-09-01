@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProperties } from '../slices/propertySlice';
 import PropertyCard from './PropertyCard';
-import PropertyDetail from './PropertyDetail'; // Import the PropertyDetail component
+import PropertyDetail from './PropertyDetail';
 import '../App.css';
 
 const PropertyList = () => {
@@ -30,6 +30,10 @@ const PropertyList = () => {
   const handleSeeDetails = (property) => {
     setSelectedProperty(property);
     setPopupVisible(true);
+  };
+
+  const handleClosePopup = () => {
+    setPopupVisible(false);
   };
 
   const filteredProperties = properties.filter((property) => (
@@ -94,14 +98,7 @@ const PropertyList = () => {
 
       {popupVisible && selectedProperty && (
         <div className="property-popup">
-          <button
-            type="button"
-            onClick={() => setPopupVisible(false)}
-            className="close-popup-button"
-          >
-            Close
-          </button>
-          <PropertyDetail property={selectedProperty} />
+          <PropertyDetail property={selectedProperty} onClose={handleClosePopup} />
         </div>
       )}
     </div>
