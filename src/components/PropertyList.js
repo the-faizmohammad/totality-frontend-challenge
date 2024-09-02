@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProperties } from '../slices/propertySlice';
 import PropertyCard from './PropertyCard';
-import PropertyDetail from './PropertyDetail'; // Import the PropertyDetail component
+import PropertyDetail from './PropertyDetail';
 import '../App.css';
 
 const PropertyList = () => {
@@ -32,6 +32,10 @@ const PropertyList = () => {
     setPopupVisible(true);
   };
 
+  const handleClosePopup = () => {
+    setPopupVisible(false);
+  };
+
   const filteredProperties = properties.filter((property) => (
     property.location.includes(filters.location)
     && property.price >= filters.priceRange[0]
@@ -41,6 +45,8 @@ const PropertyList = () => {
 
   return (
     <div className="container">
+      <h1>Welcome to Nesting.com</h1>
+      <h3>Best platform to book property online.</h3>
       <div className="filters">
         <input
           type="text"
@@ -94,14 +100,7 @@ const PropertyList = () => {
 
       {popupVisible && selectedProperty && (
         <div className="property-popup">
-          <button
-            type="button"
-            onClick={() => setPopupVisible(false)}
-            className="close-popup-button"
-          >
-            Close
-          </button>
-          <PropertyDetail property={selectedProperty} />
+          <PropertyDetail property={selectedProperty} onClose={handleClosePopup} />
         </div>
       )}
     </div>

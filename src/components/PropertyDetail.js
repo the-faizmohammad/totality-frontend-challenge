@@ -1,41 +1,52 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { addToCart } from '../slices/cartSlice';
 import '../App.css';
 
-const PropertyDetail = ({ property }) => {
+const PropertyDetail = ({ property, onClose }) => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  if (!property) {
-    return <p>Property not found.</p>;
-  }
 
   const {
     image = '',
     title = 'No Title',
     description = 'No Description',
-    location: propLocation = 'Unknown Location',
+    location = 'Unknown Location',
     bedrooms = 0,
     amenities = 'No Amenities',
     price = '0.00',
     availability = false,
     landArea = 0,
+    id = '0',
   } = property;
 
-  const handleBuyNow = () => {
+  const propertyId = Number(id);
+
+  const handleAddToCart = () => {
+    dispatch(addToCart({
+      title,
+      price,
+      location,
+      image,
+      landArea,
+      id: propertyId,
+    }));
   };
 
-  const handleContactUs = () => {
+  const handleViewCart = () => {
+    navigate('/cart');
   };
 
   return (
     <div className="property-detail-container">
-      <button type="button" onClick={() => navigate('/')} className="back-button">
-        Back
+      <button type="button" onClick={onClose} className="close-popup-button">
+        &times;
       </button>
       <div className="property-detail">
         <div className="image-slider">
-          <img src={image} alt={title} />
+          <img src={image} alt={title} style={{ height: '220px' }} />
         </div>
         <div className="property-info">
           <h2>{title}</h2>
@@ -47,7 +58,7 @@ const PropertyDetail = ({ property }) => {
               </tr>
               <tr>
                 <th>Location:</th>
-                <td>{propLocation}</td>
+                <td>{location}</td>
               </tr>
               <tr>
                 <th>Bedrooms:</th>
@@ -80,11 +91,11 @@ const PropertyDetail = ({ property }) => {
           </table>
         </div>
         <div className="property-actions">
-          <button type="button" onClick={handleBuyNow} className="buy-now-button">
-            Buy Now
+          <button type="button" onClick={handleAddToCart} className="add-to-cart-button">
+            Add to Cart
           </button>
-          <button type="button" onClick={handleContactUs} className="contact-us-button">
-            Contact Us
+          <button type="button" onClick={handleViewCart} className="view-cart-button">
+            View Cart
           </button>
         </div>
       </div>
@@ -103,7 +114,9 @@ PropertyDetail.propTypes = {
     price: PropTypes.string,
     landArea: PropTypes.number,
     availability: PropTypes.bool.isRequired,
+    id: PropTypes.string.isRequired,
   }).isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
 export default PropertyDetail;

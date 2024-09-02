@@ -5,12 +5,18 @@ import '../App.css';
 const PropertyCard = ({ property, onSeeDetails }) => (
   <div className="property-card">
     <img src={property.image} alt={property.title} />
-    <h3>{property.title}</h3>
-    <p>{property.description}</p>
-    <h3 className="property-availability">
-      {property.availability ? 'Available' : 'Not Available'}
-    </h3>
-    <button type="button" onClick={onSeeDetails}>
+    <div className="card-content">
+      <h3>{property.title}</h3>
+      <p>{property.description}</p>
+      <h3
+        className={`property-availability ${
+          property.availability ? 'available' : 'not-available'
+        }`}
+      >
+        {property.availability ? 'Available' : 'Not Available'}
+      </h3>
+    </div>
+    <button type="button" className="see-details-button" onClick={onSeeDetails}>
       See Details
     </button>
   </div>
