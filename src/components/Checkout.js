@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
-import { clearCart } from '../slices/cartSlice';
 import { useForm, ValidationError } from '@formspree/react';
+import { clearCart } from '../slices/cartSlice';
 import '../Checkout.css';
 
 const CheckoutForm = ({ onSuccess }) => {
-  const [state, handleSubmit] = useForm("xyzgvgld");
+  const [state, handleSubmit] = useForm('xyzgvgld');
 
   const handleFormSubmit = async (event) => {
     event.preventDefault(); // Prevent the default form submission
@@ -79,6 +80,10 @@ const CheckoutForm = ({ onSuccess }) => {
   );
 };
 
+CheckoutForm.propTypes = {
+  onSuccess: PropTypes.func.isRequired,
+};
+
 const Checkout = () => {
   const { items, totalCost } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
@@ -88,7 +93,7 @@ const Checkout = () => {
     if (items.length > 0) {
       setShowForm(true);
     } else {
-      alert("Your cart is empty.");
+      console.error('Your cart is empty.');
     }
   };
 
@@ -103,7 +108,10 @@ const Checkout = () => {
         <>
           <div className="cart-summary">
             <h3>Order Summary</h3>
-            <p>Total Cost: ${totalCost.toFixed(2)}</p>
+            <p>
+              Total Cost: $
+              {totalCost.toFixed(2)}
+            </p>
           </div>
           {!showForm ? (
             <button type="button" onClick={handleCheckoutClick}>

@@ -191,7 +191,7 @@ body {
 }
 
 .add-to-cart-button,
- view-cart-button {
+.view-cart-button {
   padding: 10px 20px;
   border: none;
   cursor: pointer;
@@ -202,7 +202,7 @@ body {
   transition: background-color 0.3s;
 }
 
-.add-to-cart-button:hover,
+.view-cart-button:hover,
 .add-to-cart-button:hover {
   background-color: #0056b3;
 }

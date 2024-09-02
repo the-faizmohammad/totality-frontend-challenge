@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeFromCart, updateQuantity } from '../slices/cartSlice';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { removeFromCart, updateQuantity } from '../slices/cartSlice';
 import '../Cart.css';
 
 const Cart = () => {
@@ -36,13 +36,20 @@ const Cart = () => {
                 <div>
                   <h3>{item.title}</h3>
                   <p>
-                    Location: {item.location}
+                    Location:
+                    {' '}
+                    {item.location}
                   </p>
                   <p>
-                    Price: ${item.price}
+                    Price: $
+                    {item.price}
                   </p>
                   <p>
-                    Land Area: {item.landArea} sq ft
+                    Land Area:
+                    {' '}
+                    {item.landArea}
+                    {' '}
+                    sq ft
                   </p>
                   <p>
                     Quantity:
@@ -73,10 +80,13 @@ const Cart = () => {
           </ul>
           <div className="cart-summary">
             <p>
-              Total Items: {cart.totalItems}
+              Total Items:
+              {' '}
+              {cart.totalItems}
             </p>
             <p>
-              Total Cost: ${cart.totalCost.toFixed(2)}
+              Total Cost: $
+              {cart.totalCost.toFixed(2)}
             </p>
             <button
               type="button"

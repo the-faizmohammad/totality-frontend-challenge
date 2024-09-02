@@ -73,11 +73,18 @@ const PropertyDetail = ({ property, onClose }) => {
               </tr>
               <tr>
                 <th>Price:</th>
-                <td>${price}</td>
+                <td>
+                  $
+                  {price}
+                </td>
               </tr>
               <tr>
                 <th>Land Area:</th>
-                <td>{landArea} sq ft</td>
+                <td>
+                  {landArea}
+                  {' '}
+                  sq ft
+                </td>
               </tr>
               <tr>
                 <th>Availability:</th>
@@ -90,7 +97,7 @@ const PropertyDetail = ({ property, onClose }) => {
           <button type="button" onClick={handleAddToCart} className="add-to-cart-button">
             Add to Cart
           </button>
-          <button type="button" onClick={handleViewCart} className="add-to-cart-button">
+          <button type="button" onClick={handleViewCart} className="view-cart-button">
             View Cart
           </button>
         </div>
