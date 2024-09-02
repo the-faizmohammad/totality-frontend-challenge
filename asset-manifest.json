@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/totality-frontend-challenge/static/css/main.2be1fc21.css",
+    "main.js": "/totality-frontend-challenge/static/js/main.5799b87b.js",
+    "index.html": "/totality-frontend-challenge/index.html",
+    "main.2be1fc21.css.map": "/totality-frontend-challenge/static/css/main.2be1fc21.css.map",
+    "main.5799b87b.js.map": "/totality-frontend-challenge/static/js/main.5799b87b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2be1fc21.css",
+    "static/js/main.5799b87b.js"
+  ]
+}
