@@ -9,6 +9,13 @@
 
 </div>
 
+### Video Walkthrough
+
+Check out this video walkthrough of the project: [Video Walkthrough](https://youtu.be/YvQGGl_5BFI)
+
+### Live Demo
+
+Try out the live demo of the project: [Live Demo](https://the-faizmohammad.github.io/totality-frontend-challenge/)
 
 
 # 📗 Table of Contents
@@ -52,7 +59,7 @@ To get a local copy up and running, follow these steps:
 
 - Open your Terminal in your VSCode.
 - Navigate to the desired directory [folder] to which you want to clone the repository to
-- [Copy & Paste] the Git clone you find in the code button (https://github.com/the-faizmohammad/Bookstore-react-app.git) into your terminal and press [Enter]
+- [Copy & Paste] the Git clone you find in the code button (https://github.com/the-faizmohammad/totality-frontend-challenge.git) into your terminal and press [Enter]
 - run using "npm start" in your terminal
 
 ### Prerequisites
