@@ -1,12 +1,12 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 import { removeFromCart, updateQuantity } from '../slices/cartSlice';
 import '../Cart.css';
 
 const Cart = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate(); // Initialize navigate
+  const navigate = useNavigate();
   const cart = useSelector((state) => state.cart);
 
   const handleRemove = (id) => {
@@ -18,7 +18,6 @@ const Cart = () => {
   };
 
   const handleCheckout = () => {
-    // Navigate to the checkout page
     navigate('/checkout');
   };
 

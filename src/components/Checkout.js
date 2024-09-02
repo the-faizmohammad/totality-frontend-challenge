@@ -9,7 +9,7 @@ const CheckoutForm = ({ onSuccess }) => {
   const [state, handleSubmit] = useForm('xyzgvgld');
 
   const handleFormSubmit = async (event) => {
-    event.preventDefault(); // Prevent the default form submission
+    event.preventDefault();
     await handleSubmit(event);
     if (state.succeeded) {
       onSuccess();
@@ -61,15 +61,48 @@ const CheckoutForm = ({ onSuccess }) => {
         />
       </div>
       <div className="form-group">
-        <label htmlFor="message">Message</label>
-        <textarea
-          id="message"
-          name="message"
+        <p>Please enter your card details</p>
+      </div>
+      <div className="form-group">
+        <label htmlFor="cardNumber">Card Number</label>
+        <input
+          id="cardNumber"
+          type="text"
+          name="cardNumber"
           required
         />
         <ValidationError
-          prefix="Message"
-          field="message"
+          prefix="Card Number"
+          field="cardNumber"
+          errors={state.errors}
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="expiryDate">Expiry Date</label>
+        <input
+          id="expiryDate"
+          type="text"
+          name="expiryDate"
+          placeholder="MM/YY"
+          required
+        />
+        <ValidationError
+          prefix="Expiry Date"
+          field="expiryDate"
+          errors={state.errors}
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="cvv">CVV</label>
+        <input
+          id="cvv"
+          type="text"
+          name="cvv"
+          required
+        />
+        <ValidationError
+          prefix="CVV"
+          field="cvv"
           errors={state.errors}
         />
       </div>

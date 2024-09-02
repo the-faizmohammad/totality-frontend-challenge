@@ -4,9 +4,9 @@ import { Provider } from 'react-redux';
 import Nav from './components/Nav';
 import PropertyList from './components/PropertyList';
 import PropertyDetail from './components/PropertyDetail';
-import Cart from './components/Cart'; // Import Cart component
-import Checkout from './components/Checkout'; // Import Checkout component
-import store from './store'; // Import your Redux store
+import Cart from './components/Cart';
+import Checkout from './components/Checkout';
+import store from './store';
 import './App.css';
 
 function App() {
@@ -36,11 +36,11 @@ function App() {
             />
             <Route
               path="/cart"
-              element={<Cart />} // Cart route
+              element={<Cart />}
             />
             <Route
               path="/checkout"
-              element={<Checkout />} // Checkout route
+              element={<Checkout />}
             />
           </Routes>
         </div>

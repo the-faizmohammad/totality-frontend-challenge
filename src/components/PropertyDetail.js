@@ -2,14 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { addToCart } from '../slices/cartSlice'; // Import your action creator
+import { addToCart } from '../slices/cartSlice';
 import '../App.css';
 
 const PropertyDetail = ({ property, onClose }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // Destructure property with default values
   const {
     image = '',
     title = 'No Title',
@@ -20,10 +19,10 @@ const PropertyDetail = ({ property, onClose }) => {
     price = '0.00',
     availability = false,
     landArea = 0,
-    id = '0', // Default id as string
+    id = '0', 
   } = property;
 
-  // Convert id to number
+  
   const propertyId = Number(id);
 
   const handleAddToCart = () => {
@@ -33,13 +32,13 @@ const PropertyDetail = ({ property, onClose }) => {
       location,
       image,
       landArea,
-      id: propertyId, // Convert id to number
+      id: propertyId,
     }));
-    // Optionally, you can display a message or perform other actions
+    
   };
 
   const handleViewCart = () => {
-    navigate('/cart'); // Navigate to the cart page
+    navigate('/cart');
   };
 
   return (
@@ -117,7 +116,7 @@ PropertyDetail.propTypes = {
     price: PropTypes.string,
     landArea: PropTypes.number,
     availability: PropTypes.bool.isRequired,
-    id: PropTypes.string.isRequired, // Accept id as a string
+    id: PropTypes.string.isRequired,
   }).isRequired,
   onClose: PropTypes.func.isRequired,
 };

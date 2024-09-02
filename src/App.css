@@ -48,7 +48,8 @@ body {
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   overflow: hidden;
   position: relative;
   display: flex;
@@ -140,7 +141,7 @@ body {
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;
-  width: 60%;
+  width: 90%;
   max-width: 800px;
   position: relative;
 }
@@ -205,4 +206,53 @@ body {
 .view-cart-button:hover,
 .add-to-cart-button:hover {
   background-color: #0056b3;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .property-card {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    padding-bottom: 20px;
+  }
+
+  .property-card .see-details-button {
+    padding: 15px;
+    font-size: 18px;
+  }
+
+  .property-detail-container {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .filters {
+    width: 100%;
+  }
+
+  .property-card {
+    margin-bottom: 20px;
+  }
+
+  .property-card .see-details-button {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .property-info h2 {
+    font-size: 20px;
+  }
+
+  .add-to-cart-button,
+  .view-cart-button {
+    width: 100%;
+    padding: 15px;
+    font-size: 14px;
+  }
 }
