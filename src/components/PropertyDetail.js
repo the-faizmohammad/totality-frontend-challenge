@@ -19,10 +19,9 @@ const PropertyDetail = ({ property, onClose }) => {
     price = '0.00',
     availability = false,
     landArea = 0,
-    id = '0', 
+    id = '0',
   } = property;
 
-  
   const propertyId = Number(id);
 
   const handleAddToCart = () => {
@@ -34,7 +33,6 @@ const PropertyDetail = ({ property, onClose }) => {
       landArea,
       id: propertyId,
     }));
-    
   };
 
   const handleViewCart = () => {
